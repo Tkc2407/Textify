@@ -35,7 +35,7 @@ const TextManipulator = ({ textLines }) => {
 
       let overlapDetected = false;
       for (let i = 0; i < positions.length - 1; i++) {
-        if (positions[i + 1].top - positions[i].bottom < 0) {
+        if (positions[i + 1].top - positions[i].bottom <= 0) {
           overlapDetected = true;
           break;
         }
@@ -60,7 +60,7 @@ const TextManipulator = ({ textLines }) => {
           newSpacing = spacing + adjustmentFactor;
         }
 
-        if (isOverlapping && newSpacing < spacing) {
+        if (isOverlapping && newSpacing <= spacing) {
           return;
         }
 
